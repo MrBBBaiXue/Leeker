@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abbcc48d-603d-48c8-881b-b6b6cab5958d" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/HttpUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/App.java" afterDir="false" />
@@ -46,14 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
-  </component>
-  <component name="RunManager">
-    <recent_temporary>
-      <list>
-        <item itemvalue="应用程序.App" />
-      </list>
-    </recent_temporary>
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,6 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1639914649263</updated>
       <workItem from="1639914650757" duration="2964000" />
+      <workItem from="1639919056670" duration="2571000" />
     </task>
     <servers />
   </component>
