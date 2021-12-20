@@ -12,8 +12,8 @@ public class StockInfo {
         Name = name;
         Code = code;
     }
-    public String GetName() { return Name; }
-    public String GetCode() { return Code; }
+    public String getName() { return Name; }
+    public String getCode() { return Code; }
     public void DownloadDayK(String startDate)
             throws IOException, InterruptedException {
         String param = "/stock/kline/day?code="+ Code +"&startDate=" + startDate;

@@ -30,6 +30,6 @@ public class App
 
         var stockYuTong = new StockInfo("宇通客车", "sh600066");
         stockYuTong.DownloadDayK(cdrStart);
-        System.out.println(stockYuTong.GetCode() + " " + stockYuTong.GetName());
+        System.out.println(stockYuTong.getCode() + " " + stockYuTong.getName());
     }
 }
