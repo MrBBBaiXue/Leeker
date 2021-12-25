@@ -1,5 +1,8 @@
 package com.bakneko;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StockResponseData {
 
     // 从JSON获得出的Data数据
@@ -32,6 +35,35 @@ public class StockResponseData {
     public String[] getKLines() { return this.KLines; }
     public void setKLines(String[] kLines) { this.KLines = kLines; }
 
+    public List<KLine> GetKLineList()
+    {
+        List<KLine> klines = new ArrayList<KLine>();
+        for (String data:KLines) {
+            // 分割每个data行，作为kLine
+            String[] splitData = data.split(",");
+
+            // kline 的数据
+            String date = splitData[0];
+            double open = Double.parseDouble(splitData[1]);
+            double close = Double.parseDouble(splitData[2]);
+            double max = Double.parseDouble(splitData[3]);
+            double min = Double.parseDouble(splitData[4]);
+            double dealMount = Double.parseDouble(splitData[5]);
+            double dealPrice = Double.parseDouble(splitData[6]);
+            double amplitude = Double.parseDouble(splitData[7]);
+            double amplRatio = Double.parseDouble(splitData[8]);
+            double amplPrice = Double.parseDouble(splitData[9]);
+            double tradeRatio = Double.parseDouble(splitData[10]);
+
+            var kline = new KLine(
+                    date, open, close, max,
+                    min, dealMount, dealPrice, amplitude,
+                    amplRatio, amplPrice, tradeRatio
+            );
+            klines.add(kline);
+        }
+        return klines;
+    }
 }
 
 /* [返回值示例]

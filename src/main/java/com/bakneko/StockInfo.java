@@ -1,19 +1,19 @@
 package com.bakneko;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
+import java.util.List;
 
 public class StockInfo {
 
     private final String Name;
     private final String Code;
 
-    /* TODO: 重新整理，应当把KLine[]的数据存储在这里
-             StockResponseData只是作为解析用
-     */
+    private List<KLine> KLines;
+    // 把KLine数据存储在这里
 
     public StockInfo(String name, String code)
     {
@@ -21,11 +21,18 @@ public class StockInfo {
         Code = code;
     }
 
-    public String getName() { return Name; }
-    public String getCode() { return Code; }
+    public String getName() { return this.Name; }
 
+    public String getCode() { return this.Code; }
 
-    public void DownloadDayK(String startDate, String endDate) throws IOException {
+    public List<KLine> getKLines() { return this.KLines; }
+
+    public void setKLines(List<KLine> kLines)
+    {
+        KLines = kLines;
+    }
+
+    public void DownloadDailyKLine(String startDate, String endDate) throws IOException {
 
         // 把正常的股票代码转换为东方财富的格式
         // e.g. 平安银行 SZ000001 -> 0.000001
@@ -56,8 +63,13 @@ public class StockInfo {
         var data = objectMapper.writeValueAsString(objectMapper.readTree(url).path("data"));
         var stockResponseData = objectMapper.readValue(data, StockResponseData.class);
 
-        // 调用StockResponseData, 清洗数据，获得KLine[]
-        System.out.println(Arrays.toString(stockResponseData.getKLines()));
+        // 调用StockResponseData.GetKLineList, 清洗数据，获得<KLine>
+        KLines = stockResponseData.GetKLineList();
     }
 
+    public String ToJson() throws JsonProcessingException {
+        var objectMapper = new ObjectMapper();
+        var string = objectMapper.writeValueAsString(this);
+        return string;
+    }
 }

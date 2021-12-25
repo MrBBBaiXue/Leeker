@@ -7,7 +7,7 @@ import java.util.Date;
 public class App
 {
     public static String GetDayKApiUrl = "https://push2his.eastmoney.com/api/qt/stock/kline/get";
-    public static void main( String[] args ) throws IOException, InterruptedException {
+    public static void main( String[] args ) throws IOException {
 
         // 获取今日时间
         Calendar cdr = Calendar.getInstance();
@@ -23,15 +23,16 @@ public class App
                 String.valueOf(cdr.get(Calendar.DATE));
 
         // 初始输出
-        System.out.println( "----------------------" );
+        System.out.println( "--------------------------------------------" );
         System.out.println( "股票数据蜘蛛 & 韭菜模拟器" );
-        System.out.println( "----------------------" );
+        System.out.println( "--------------------------------------------" );
         System.out.println("当前时间: " + cdrToday + "  起始时间: " + cdrStart);
-        System.out.println( "----------------------" );
+        System.out.println( "--------------------------------------------" );
 
         // 测试获取信息
         var stockYuTong = new StockInfo("宇通客车", "SH600066");
         System.out.println(stockYuTong.getCode() + " " + stockYuTong.getName());
-        stockYuTong.DownloadDayK(cdrStart, cdrToday);
+        stockYuTong.DownloadDailyKLine(cdrStart, cdrToday);
+
     }
 }
