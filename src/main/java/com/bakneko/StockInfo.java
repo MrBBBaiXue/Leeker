@@ -21,6 +21,11 @@ public class StockInfo {
         Code = code;
     }
 
+    public StockInfo(String name, String codeID, int codePrefix) {
+        Name = name;
+        Code = (codePrefix == 1 ? "SH" : "SZ") + codeID;
+    }
+
     public String getName() {
         return this.Name;
     }
