@@ -8,11 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abbcc48d-603d-48c8-881b-b6b6cab5958d" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/KLine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SH600066.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/StockInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/StockInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/StockResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/StockResponseData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +84,8 @@
       <workItem from="1640435055882" duration="613000" />
       <workItem from="1640436286464" duration="1517000" />
       <workItem from="1640438904138" duration="1944000" />
+      <workItem from="1640440995563" duration="925000" />
+      <workItem from="1640446739455" duration="246000" />
     </task>
     <servers />
   </component>

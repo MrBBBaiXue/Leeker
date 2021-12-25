@@ -3,6 +3,7 @@ package com.bakneko;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -15,20 +16,24 @@ public class StockInfo {
     private List<KLine> KLines;
     // 把KLine数据存储在这里
 
-    public StockInfo(String name, String code)
-    {
+    public StockInfo(String name, String code) {
         Name = name;
         Code = code;
     }
 
-    public String getName() { return this.Name; }
+    public String getName() {
+        return this.Name;
+    }
 
-    public String getCode() { return this.Code; }
+    public String getCode() {
+        return this.Code;
+    }
 
-    public List<KLine> getKLines() { return this.KLines; }
+    public List<KLine> getKLines() {
+        return this.KLines;
+    }
 
-    public void setKLines(List<KLine> kLines)
-    {
+    public void setKLines(List<KLine> kLines) {
         KLines = kLines;
     }
 
@@ -37,11 +42,10 @@ public class StockInfo {
         // 把正常的股票代码转换为东方财富的格式
         // e.g. 平安银行 SZ000001 -> 0.000001
         //      宇通客车 SH600066 -> 1.600066
-        var prefix = Code.substring(0,2);
+        var prefix = Code.substring(0, 2);
         var id = Code.substring(2);
         String apiPrefix;
-        switch (prefix)
-        {
+        switch (prefix) {
             case "SH":
                 apiPrefix = "1";
                 break;
@@ -67,9 +71,20 @@ public class StockInfo {
         KLines = stockResponseData.GetKLineList();
     }
 
-    public String ToJson() throws JsonProcessingException {
+    public String ToJsonString() throws JsonProcessingException {
+        //转化为字符串
         var objectMapper = new ObjectMapper();
         var string = objectMapper.writeValueAsString(this);
         return string;
+    }
+
+    public void SaveToFile(String filePath) {
+        // 输出到文件
+        try (FileWriter file = new FileWriter(filePath)) {
+            file.write(ToJsonString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -9,6 +9,9 @@ public class App
     public static String GetDayKApiUrl = "https://push2his.eastmoney.com/api/qt/stock/kline/get";
     public static void main( String[] args ) throws IOException {
 
+        // 获取程序当前路径
+        //var programPath = System.getProperty("usr.dir");
+
         // 获取今日时间
         Calendar cdr = Calendar.getInstance();
         cdr.setTime(new Date());
@@ -34,5 +37,7 @@ public class App
         System.out.println(stockYuTong.getCode() + " " + stockYuTong.getName());
         stockYuTong.DownloadDailyKLine(cdrStart, cdrToday);
 
+        var path = stockYuTong.getCode() + ".json";
+        stockYuTong.SaveToFile(path);
     }
 }
