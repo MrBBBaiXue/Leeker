@@ -1,6 +1,5 @@
 package com.bakneko;
 
-
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
@@ -30,8 +29,9 @@ public class App
         System.out.println("当前时间: " + cdrToday + "  起始时间: " + cdrStart);
         System.out.println( "----------------------" );
 
+        // 测试获取信息
         var stockYuTong = new StockInfo("宇通客车", "SH600066");
-        stockYuTong.DownloadDayK(cdrStart, cdrToday);
         System.out.println(stockYuTong.getCode() + " " + stockYuTong.getName());
+        stockYuTong.DownloadDayK(cdrStart, cdrToday);
     }
 }

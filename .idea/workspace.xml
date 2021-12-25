@@ -8,10 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/HttpUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/StockData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/StockKLineData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/StockInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/StockInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/StockResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/StockResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/StockKLineData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/StockResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/StockResponseData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +43,9 @@
     <option name="jreName" value="16" />
     <option name="vmOptions" value="-DarchetypeCatalog=local" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="22VF3W2Lw2Mj1XRmtZQZzc0lSnx" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -73,6 +76,7 @@
       <workItem from="1640018811067" duration="1862000" />
       <workItem from="1640395805940" duration="1603000" />
       <workItem from="1640397553612" duration="2548000" />
+      <workItem from="1640408538552" duration="3513000" />
     </task>
     <servers />
   </component>
