@@ -7,29 +7,31 @@ import java.util.Date;
 
 public class App
 {
-    public static String ApiUrl = "https://api.doctorxiong.club/v1";
+    public static String GetDayKApiUrl = "https://push2his.eastmoney.com/api/qt/stock/kline/get";
     public static void main( String[] args ) throws IOException, InterruptedException {
+
         // 获取今日时间
         Calendar cdr = Calendar.getInstance();
         cdr.setTime(new Date());
 
-        String cdrToday = String.valueOf(cdr.get(Calendar.YEAR)) + "-" +
-                String.valueOf(cdr.get(Calendar.MONTH) + 1) + "-" +
+        String cdrToday = String.valueOf(cdr.get(Calendar.YEAR)) +
+                String.valueOf(cdr.get(Calendar.MONTH) + 1) +
                 String.valueOf(cdr.get(Calendar.DATE));
 
         cdr.add(Calendar.DATE,-30);
-        String cdrStart = String.valueOf(cdr.get(Calendar.YEAR)) + "-" +
-                String.valueOf(cdr.get(Calendar.MONTH) + 1) + "-" +
+        String cdrStart = String.valueOf(cdr.get(Calendar.YEAR)) +
+                String.valueOf(cdr.get(Calendar.MONTH) + 1) +
                 String.valueOf(cdr.get(Calendar.DATE));
-        // 初始输出
-        System.out.println( "--------------------" );
-        System.out.println( "韭菜模拟器" );
-        System.out.println( "--------------------" );
-        System.out.println("当前时间: " + cdrToday + "  起始时间: " + cdrStart);
-        System.out.println( "--------------------" );
 
-        var stockYuTong = new StockInfo("宇通客车", "sh600066");
-        stockYuTong.DownloadDayK(cdrStart);
+        // 初始输出
+        System.out.println( "----------------------" );
+        System.out.println( "股票数据蜘蛛 & 韭菜模拟器" );
+        System.out.println( "----------------------" );
+        System.out.println("当前时间: " + cdrToday + "  起始时间: " + cdrStart);
+        System.out.println( "----------------------" );
+
+        var stockYuTong = new StockInfo("宇通客车", "SH600066");
+        stockYuTong.DownloadDayK(cdrStart, cdrToday);
         System.out.println(stockYuTong.getCode() + " " + stockYuTong.getName());
     }
 }

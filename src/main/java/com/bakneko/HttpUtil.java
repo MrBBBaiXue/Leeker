@@ -7,6 +7,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class HttpUtil {
+
     public static String GetHttpResponse(String url)
     throws IOException, InterruptedException {
         // 发送 http 请求
@@ -15,4 +16,6 @@ public class HttpUtil {
         HttpResponse<String>response=client.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
     }
+
+
 }
