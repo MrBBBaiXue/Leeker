@@ -33,7 +33,7 @@ public class App
         System.out.println( "--------------------------------------------" );
 
         // 测试获取信息
-        var stockYuTong = new StockInfo("宇通客车", "SH600066");
+        var stockYuTong = new StockInfo("上证指数", "SH000001");
         System.out.println(stockYuTong.getCode() + " " + stockYuTong.getName());
         stockYuTong.DownloadDailyKLine(cdrStart, cdrToday);
 
