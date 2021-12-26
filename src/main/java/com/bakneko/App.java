@@ -24,6 +24,10 @@ public class App
         return "https://10.push2.eastmoney.com/api/qt/clist/get?pn=1&pz=" + count + "&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:1+t:2,m:1+t:23&fields=f12,f13,f14";
     }
 
+    public static String GetKLineImageUrl(String code) {
+        return "https://image.sinajs.cn/newchart/daily/n/" + code.toLowerCase(Locale.ROOT) + ".gif";
+    }
+
     // 时间信息
     public static Calendar Cdr = Calendar.getInstance();
     public static String CdrStart, CdrToday;
@@ -64,7 +68,7 @@ public class App
 
         while (true)
         {
-            String mode = "";
+            String mode;
             //要求输入模式和数量
             System.out.println( "选择模式：" );
             System.out.println( "A. 数据爬取" );
@@ -102,7 +106,7 @@ public class App
         var count = 10;
 
         // 获得输入数量
-        //要求输入模式和数量
+        // 要求输入模式和数量
         System.out.println( "[* 数据爬取] 输入爬取数量: " );
         System.out.println( "(目前只支持上证)" );
         System.out.print("> ");
@@ -128,31 +132,97 @@ public class App
             var path = DataPath + stockInfo.getCode() + ".json";
             stockInfo.SaveToFile(path);
             System.out.println("[√] " + path);
+
+            // 获取K线图 (Sina)
+            Utility.DownloadFile(GetKLineImageUrl(stockInfo.getCode()), DataPath);
+            System.out.println("[√] " + DataPath + stockInfo.getCode().toLowerCase(Locale.ROOT) + ".gif");
             System.out.print("\n");
 
             // 保存到 StockInfos
             StockInfos.add(stockInfo);
         }
-        return;
     }
 
     public static void JiuCaiSimulator() throws IOException {
 
         // 韭菜模拟器
 
-        //
+        // 游戏说明
         System.out.println( "[$ 韭菜模拟器] 游戏说明: " );
         System.out.println( "   本来要写一个可以保存加载的“游戏大作”的，但是因为给资本家打工去了，就没写完。" );
         System.out.println( "简单做一个猜测股票涨跌的程序吧，游戏规则很简单，程序先给出你刚刚爬取的股票列表，" );
-        System.out.println( "然后从第一天开始，你拥有10W元，你可以选择购买一只股票，然后你可以选择买入或卖出" );
-        System.out.println( "避免在股票涨跌之间狗带。" );
+        System.out.println( "你可以猜测股票下一天的走势，猜测它的涨跌。" );
         System.out.print("> 按回车继续");
         new BufferedReader(new InputStreamReader(System.in)).readLine();
         System.out.print("\n");
 
+        // 列出股票列表
+        System.out.println("[$] 股票列表: ");
+        for (var stockInfo:StockInfos) {
+            System.out.println(StockInfos.indexOf(stockInfo) + " - " + stockInfo.getName());
+        }
 
+        // 获得输入的股票
+        var index = 0;
+        System.out.print("\n");
+        System.out.println( "[$] 选择股票: " );
+        System.out.println( "(e.g. 输入序号，第一支股票输入0)" );
+        System.out.print("> ");
+        Scanner sc = new Scanner(System.in);
+        index = sc.nextInt();
+        System.out.print("\n");
 
-        return;
+        var stock = StockInfos.get(index);
+        var website = "https://quote.eastmoney.com/" + stock.getCode().toLowerCase(Locale.ROOT) + ".html";
+
+        var date = 0;
+
+        // 开始循环
+        while (date < stock.getKLines().size() - 1)
+        {
+            // 输出信息
+            var klines = stock.getKLines().get(date);
+            System.out.println("[$] 目前股票: " + stock.getName() + " - " + stock.getCode());
+            System.out.println("[股票网址] " + website);
+            System.out.println("[时间] " + klines.getDate());
+            System.out.printf("%-20s%-20s%-20s%-20s\n",
+                    "[开盘] " + klines.getOpen(),
+                    "[收盘] " + klines.getClose(),
+                    "[最高] " + klines.getMax(),
+                    "[最低] " + klines.getMin()
+            );
+            System.out.printf("%-20s%-20s%-20s%-20s\n",
+                    "[成交数] " + klines.getDealMount(),
+                    "[成交额] " + klines.getDealPrice(),
+                    "[涨跌幅] " + klines.getAmplRatio(),
+                    "[涨跌额] " + klines.getAmplPrice()
+            );
+
+            // 输入猜测
+            var guess = 0;
+            System.out.print("\n");
+            System.out.println( "[$] 猜测涨跌: " );
+            System.out.println( "(e.g. 0=涨, 1=跌)" );
+            System.out.print("> ");
+            sc = new Scanner(System.in);
+            guess = sc.nextInt();
+            System.out.print("\n");
+
+            // 判断
+            date++;
+            var klinesNextDay = stock.getKLines().get(date);
+            var delta = klinesNextDay.getClose() - klines.getClose();
+            System.out.println("[$] 价格变动: 相较前日" +
+                    (delta > 0 ? "涨了" : "跌了") +
+                    delta + "元。"
+            );
+            System.out.println("    " + (delta > 0 ?
+                    (guess == 0 ? "您猜对了!" : "您猜错了!") :
+                    (guess == 1 ? "您猜对了!" : "您猜错了!")));
+            System.out.print("\n");
+        }
+        System.out.println( "[$] 游戏结束" );
+        System.out.print("\n");
     }
 
 }
