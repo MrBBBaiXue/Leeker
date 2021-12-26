@@ -8,11 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abbcc48d-603d-48c8-881b-b6b6cab5958d" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/StockListData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/StockInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/StockInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bakneko/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bakneko/Utility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +85,7 @@
       <workItem from="1640440995563" duration="925000" />
       <workItem from="1640446739455" duration="246000" />
       <workItem from="1640448718133" duration="6703000" />
+      <workItem from="1640486762017" duration="4995000" />
     </task>
     <servers />
   </component>
